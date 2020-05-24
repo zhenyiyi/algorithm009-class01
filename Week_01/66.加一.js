@@ -1,8 +1,9 @@
 /**
  * @param {number[]} digits
  * @return {number[]}
+ * 测试越界
  */
-var plusOne = function (digits) {
+var plusOne1 = function (digits) {
     let oldValue = digits.reduce(function(x, y){
         return x * 10 + y;
     });
@@ -40,8 +41,9 @@ var plusOne2 = function (digits) {
 /**
  * @param {number[]} digits
  * @return {number[]}
+ * 完美解法
  */
-var plusOne3 = function (digits) {
+var plusOne = function (digits) {
     for(let i=digits.length-1; i>=0; i--) {
         if (digits[i] == 9) {
             digits[i] = 0;
@@ -58,25 +60,11 @@ var plusOne3 = function (digits) {
 /**
  * @param {number[]} digits
  * @return {number[]}
+ * 暴力解
  */
 var plusOne4 = function (digits) {
-    return String((BigInt(digits.join('')) + 1n)).split('');
+    return String((BigInt(digits.join('')) + 1)).split('');
 }
-
-
-let r = plusOne4([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]);
-console.log(r);
-r = plusOne3([4, 3, 2, 1]);
-console.log(r);
-
-r = plusOne3([9, 9]);
-console.log(r);
-
-// 第一次解答：运行错误，因为越界
-
-
-
-
 
 /**
  * 
